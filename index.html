@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f7">
+  <meta name="description" content="Уютная доска объявлений: находите интересные вещи и делитесь своими находками.">
+  <title>Нежно — доска объявлений</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Нежно — на главную"><span class="brand-icon">✿</span> нежно<span
+          class="brand-dot">.</span></a>
+      <span class="header-note">место для приятных находок <span aria-hidden="true">♡</span></span>
+      <a class="header-link" href="#ad-form">Разместить объявление <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="top">
+
+
+    <div class="container">
+      <section class="card create-card" aria-labelledby="create-title">
+        <div class="section-kicker">✦ ПОДЕЛИТЬСЯ СВОИМ</div>
+        <h2 id="create-title">Новое объявление <span class="heading-flower">✿</span></h2>
+        <p class="section-description">Расскажи о своей находке — возможно, кто-то давно её ищет.</p>
+        <form id="ad-form" novalidate>
+          <label>Название объявления<input type="text" name="title" id="title" maxlength="100"
+              placeholder="Например, уютная лампа" required></label>
+          <label>Описание<textarea name="description" id="description" rows="4"
+              placeholder="Расскажи немного подробнее..." required></textarea></label>
+          <label>Цена, сом<input type="number" name="price" id="price" min="0" step="0.01" placeholder="0"
+              required></label>
+          <label>Фотография<input type="file" name="image" id="image" accept="image/*" required></label>
+          <img id="preview" class="preview" alt="Предпросмотр выбранной фотографии" hidden>
+          <button type="submit" id="submit-btn">Опубликовать объявление <span aria-hidden="true">↗</span></button>
+          <p id="form-status" class="status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="listing" aria-labelledby="list-heading">
+        <div class="section-kicker">✦ НАЙДИ ЧТО-ТО ОСОБЕННОЕ</div>
+        <div class="list-header">
+          <div>
+            <h2 id="list-heading">Свежие находки <span class="heading-flower">♡</span></h2>
+            <p class="section-description">Вещи, которые ждут именно тебя <span id="total" class="muted"></span></p>
+          </div><button type="button" id="refresh-btn" class="secondary">↻ Обновить</button>
+        </div>
+        <div class="search-wrap"><span aria-hidden="true" class="search-icon">⌕</span><input type="search" id="search"
+            class="search" placeholder="Что будем искать сегодня?" aria-label="Поиск объявлений" autocomplete="off">
+        </div>
+        <p id="list-status" class="status" role="status" aria-live="polite"></p>
+        <div id="ads" class="grid"></div>
+        <div class="pager"><button type="button" id="prev-btn" class="secondary">← Назад</button><span id="page-info"
+            class="muted"></span><button type="button" id="next-btn" class="secondary">Вперёд →</button></div>
+      </section>
+    </div>
+  </main>
+  <footer>Сделано с теплом <span aria-hidden="true">♡</span> · нежно.</footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
